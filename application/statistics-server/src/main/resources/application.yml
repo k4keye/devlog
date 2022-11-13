@@ -1,0 +1,39 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: statistics-server
+
+  redis:
+    host: localhost
+    port: 6379
+
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:4445/main_db
+    username: root
+    password: '0000'
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+
+  kafka:
+    consumer:
+      bootstrap-servers: localhost:9092
+      group-id: order-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+
+  main-server:
+    url: http://localhost:8081
+
+Loggin:
+  level:
+    org.hibernate.SQL: debug

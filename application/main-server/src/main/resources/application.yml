@@ -1,0 +1,58 @@
+server:
+  port: 8081
+#  tomcat:
+#    basedir: .
+#    accesslog:
+#      enabled: true
+#      directory: logs
+#      suffix: .log
+#      prefix: access_log
+#      file-date-format: .yyyy-MM-dd
+#      pattern: "%{yyyy-MM-dd HH:mm:ss}t %s %r %{User-Agent}i %{Referer}i %a %b"
+
+spring:
+  application:
+    name: devlog-server
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+
+  sql:
+    init:
+      data-locations: classpath:data.sql # data.sql 위치
+      mode: always # data.sql 허용
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://127.0.0.1:4445/main_db
+    username: root
+    password: '0000'
+
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+    defer-datasource-initialization: true # data.sql 허용
+
+  redis:
+    host: localhost
+    port: 6379
+
+  kafka:
+    producer:
+      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
+
+
+Loggin:
+  level:
+    org.hibernate.SQL: debug
+
+jwt:
+  header: Authorization
+  #echo 'silvernine-tech-spring-boot-jwt-tutorial-secret-silvernine-tech-spring-boot-jwt-tutorial-secret'|base64
+  secret: c2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQtc2lsdmVybmluZS10ZWNoLXNwcmluZy1ib290LWp3dC10dXRvcmlhbC1zZWNyZXQK
+  token-validity-in-seconds: 86400
