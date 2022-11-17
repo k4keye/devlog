@@ -1,6 +1,7 @@
 package com.main.server.service;
 
 import com.main.server.domain.Article;
+import com.main.server.domain.Member;
 import com.main.server.domain.repository.ArticleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -15,9 +16,11 @@ public class ArticleService {
 
     private final ArticleRepository articleRepository;
 
-    public Article save() {
+    public Article save(Member member,String title,String context) {
 
-        return articleRepository.save(new Article());
+        Article article = new Article(title, context);
+        member.appendArticle(article);
+        return articleRepository.save(article);
     }
 
     public Article fetch(Long articleId){

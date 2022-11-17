@@ -7,7 +7,7 @@ version: '3.8'
 services:
 
   velog-main-mariadb:
-    container_name: velog-main-db
+    container_name: devlog-main-db
     image: mariadb:10.8.3
     volumes:
       - ./share:/share

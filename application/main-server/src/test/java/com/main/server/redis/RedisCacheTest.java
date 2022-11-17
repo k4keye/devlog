@@ -31,7 +31,7 @@ public class RedisCacheTest {
         int createMemberCount = 10;
 
         for ( int i = 0 ; i <createMemberCount ; i ++){
-            memberRepository.save(new Member(new LoginID("id"+i),"pwd"+i,new NickName("nick"+i),new Email("email"+i)));
+            //memberRepository.save(new Member(new LoginID("id"+i),"pwd"+i,new NickName("nick"+i),new Email("email"+i)));
         }
 
         em.flush();

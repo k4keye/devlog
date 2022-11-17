@@ -12,7 +12,7 @@ public class RandomTest {
 
         for(int i =0; i <100; i++){
             int number = RandomUtils.getSingleNumber(80, 100);
-
+            System.out.println("number = " + number);
             Assertions.assertTrue(number <=100);
             Assertions.assertTrue(number >= 80);
         }
