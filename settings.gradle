@@ -3,7 +3,6 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
-rootProject.name = 'mall-project'
+rootProject.name = 'devlog'
 include 'application:main-server'
-include 'application:mail-server'
 include 'application:statistics-server'

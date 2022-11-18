@@ -4,7 +4,7 @@ plugins {
     id 'java'
 }
 
-group = 'com.mall'
+group = 'com.devlog'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -23,7 +23,7 @@ subprojects {
     apply plugin: 'org.springframework.boot'
     apply plugin: 'io.spring.dependency-management'
 
-    group = 'com.mall'
+    group = 'com.devlog'
     sourceCompatibility = '11'
 
     repositories {
